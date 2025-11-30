@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f5f5f5;
+  color: #0a0a0a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 64px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.title {
+  font-size: 14px;
+  color: #525252;
+  font-weight: 400;
+  margin-top: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.bio {
+  font-size: 14px;
+  color: #404040;
+  margin-top: 32px;
+  max-width: 65ch;
+  text-wrap: balance;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.contact {
+  font-size: 14px;
+  color: #404040;
+  margin-top: 32px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+/* Link Styles */
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #a3a3a3;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.link:hover {
+  color: #0a0a0a;
+  text-decoration-color: #0a0a0a;
+}
+
+.link-red:hover {
+  color: #EF4444;
+  text-decoration-color: #EF4444;
+}
+
+/* Email and LinkedIn Links with Icon Hover Effect */
+.email-link,
+.linkedin-link {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.link-content {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.link-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  right: -10px;
+  transform: translateY(-50%);
+  height: 24px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.link-text {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.link-icon {
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.email-link:hover .link-content::before,
+.linkedin-link:hover .link-content::before {
+  opacity: 1;
+  left: -26px;
+  right: -10px;
+}
+
+.email-link:hover .link-icon,
+.linkedin-link:hover .link-icon {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.email-link:hover,
+.linkedin-link:hover {
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 32px 24px;
+  }
+  
+  .name,
+  .title,
+  .bio,
+  .contact {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 24px 16px;
+  }
+}
